@@ -31,7 +31,7 @@ int	sa(t_stack **stack, int flag)
 		node_2->next = node_1;
 		*stack = node_2;
 		if (flag)
-			printf("sa\n");
+			ft_printf("sa\n");
 		return (1);
 	}
 	return (0);
@@ -47,7 +47,7 @@ int	sb(t_stack **stack, int flag)
 		return (0);
 	}
 	if (flag)
-		printf("sb\n");
+		ft_printf("sb\n");
 	return (1);
 }
 
@@ -59,7 +59,7 @@ int	ss(t_stack *stacks[2])
 		ft_printf("ss : No Stack Allocated");
 		return (0);
 	}
-	printf("ss\n");
+	ft_printf("ss\n");
 	return (1);
 }
 
@@ -67,7 +67,7 @@ void	refacto(t_stack **stack_A, t_stack **stack_B)
 {
 	t_stack	*temp;
 
-		temp = *stack_B;
+	temp = *stack_B;
 	if ((*stack_B)->next)
 	{
 		(*stack_B)->next->prev = NULL;
@@ -91,11 +91,12 @@ void	refacto(t_stack **stack_A, t_stack **stack_B)
 
 // pa (push a) : Prend le premier élément au sommet de b et le met sur a.
 // Ne fait rien si b est vide.
-void	pa(t_stack **stack_A, t_stack **stack_B)
+void	pa(t_stack **stack_A, t_stack **stack_B, int flag)
 {
 	if (*stack_B)
 	{
-		refacto(stack_A, stack_A);
-		printf("pa\n");
+		refacto(stack_A, stack_B);
+		if(flag)
+			ft_printf("pa\n");
 	}
 }

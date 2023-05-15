@@ -14,7 +14,6 @@
 
 int	sort_two_values(t_stack **stack)
 {
-	ft_printf("TWO VALUES");
 	if ((*stack)->num > (*stack)->next->num)
 	{
 		sa(stack, 1);
@@ -24,21 +23,20 @@ int	sort_two_values(t_stack **stack)
 
 int	sort_three_values_bis(t_stack **stack)
 {
-	ft_printf("THREEbis VALUES");
 	if ((*stack)->num > (*stack)->next->num
 		&& (*stack)->next->num < (*stack)->next->next->num
 		&& (*stack)->num > (*stack)->next->next->num)
 	{
 		ra(stack, 1);
 	}
-	if ((*stack)->num < (*stack)->next->num
+	else if ((*stack)->num < (*stack)->next->num
 		&& (*stack)->next->num > (*stack)->next->next->num
 		&& (*stack)->num < (*stack)->next->next->num)
 	{
 		sa(stack, 1);
 		ra(stack, 1);
 	}
-	if ((*stack)->num < (*stack)->next->num
+	else if ((*stack)->num < (*stack)->next->num
 		&& (*stack)->next->num > (*stack)->next->next->num
 		&& (*stack)->num > (*stack)->next->next->num)
 	{
@@ -49,15 +47,13 @@ int	sort_three_values_bis(t_stack **stack)
 
 int	sort_three_values(t_stack **stack)
 {
-		ft_printf("THREE VALUES");
 	if ((*stack)->num > (*stack)->next->num
 		&& (*stack)->next->num < (*stack)->next->next->num
 		&& (*stack)->num < (*stack)->next->next->num)
 	{
 		sa(stack, 1);
-		printf("SA Operated ! \n");
 	}
-	if ((*stack)->num > (*stack)->next->num
+	else if ((*stack)->num > (*stack)->next->num
 		&& (*stack)->next->num > (*stack)->next->next->num
 		&& (*stack)->num > (*stack)->next->next->num)
 	{
@@ -70,31 +66,30 @@ int	sort_three_values(t_stack **stack)
 
 void	sort_four_values(t_stack *stacks[2])
 {
-	ft_printf("four VALUES");
 	pb(&stacks[A], &stacks[B]);
 	sort_three_values(&stacks[A]);
 	if (stacks[B]->num > stacks[A]->num
 		&& stacks[B]->num < stacks[A]->next->num)
 	{
-		pa(&stacks[A], &stacks[B]);
+		pa(&stacks[A], &stacks[B], 1);
 		sa(&stacks[A], 1);
 	}
 	else if (stacks[B]->num > stacks[A]->next->num
 		&& stacks[B]->num < stacks[A]->next->next->num)
 	{
 		rra(&stacks[A], 1);
-		pa(&stacks[A], &stacks[B]);
+		pa(&stacks[A], &stacks[B], 1);
 		rb(&stacks[A], 1);
 		rb(&stacks[A], 1);
 	}
 	else if (stacks[B]->num > stacks[A]->next->next->num)
 	{
-		pa(&stacks[A], &stacks[B]);
+		pa(&stacks[A], &stacks[B], 1);
 		rb(&stacks[A], 1);
 	}
 	else
 	{
-		pa(&stacks[A], &stacks[B]);
+		pa(&stacks[A], &stacks[B], 1);
 	}
 }
 
@@ -103,25 +98,24 @@ void	sort_five_values(t_stack *stacks[2])
 	int		index;
 	t_stack	*min;
 
-	ft_printf("FIVE VALUES");
 	min = get_min_value(stacks[A]);
-	ft_printf("min value retrieved [%d]\n", min->num);
+	// ft_printf("min value retrieved [%d]\n", min->num);
 	index = min->get_prev_count(min);
 	if (index == 1)
 		sa(&stacks[A], 1);
-	if (index == 2)
+	else if (index == 2)
 	{
 		ra(&stacks[A], 1);
 		sa(&stacks[A], 1);
 	}
-	if (index == 3)
+	else if (index == 3)
 	{
 		rra(&stacks[A], 1);
 		rra(&stacks[A], 1);
 	}
-	if (index == 4)
+	else if (index == 4)
 		rra(&stacks[A], 1);
 	pb(&stacks[A], &stacks[B]);
 	sort_four_values(&stacks[A]);
-	pa(&stacks[A], &stacks[B]);
+	pa(&stacks[A], &stacks[B], 1);
 }

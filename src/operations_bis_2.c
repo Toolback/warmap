@@ -16,7 +16,7 @@ int	rrr(t_stack **stack_A, t_stack **stack_B)
 {
 	if (!rra(stack_A, 0) || !rrb(stack_B, 0))
 		return (0);
-	printf("rra\n");
+	ft_printf("rra\n");
 	return (1);
 }
 
@@ -24,7 +24,7 @@ int	rrr(t_stack **stack_A, t_stack **stack_B)
 // Ne fait rien si a est vide.
 int	pb(t_stack **stack_A, t_stack **stack_B)
 {
-	pa(stack_B, stack_A);
-	printf("pb\n");
+	pa(stack_B, stack_A, 0);
+	ft_printf("pb\n");
 	return (1);
 }

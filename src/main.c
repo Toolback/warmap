@@ -14,7 +14,6 @@
 
 void	small_sort(t_stack *stacks[2], int ac)
 {
-	ft_printf("Small in !");
 	if (ac == 2)
 		sort_two_values(&stacks[A]);
 	if (ac == 3)
@@ -89,7 +88,6 @@ int	main(int ac, char **av)
 	t_stack	*stacks[2];
 	char	**values;
 
-	ft_printf("LEts");
 	if (ac > 1)
 	{
 		if (ac == 2)
@@ -102,16 +100,13 @@ int	main(int ac, char **av)
 			values = av + 1;
 			ac = ac - 1;
 		}
-		ft_printf("before duplicate");
 		if (has_duplicates(ac, values) == -1)
 			error_exit("Error : Has at least twice same number\n");
 		else
-		{
 			grrr(stacks, values, ac);
-			ft_printf("has passed grrrr");
-		}
 	}
 	else
 		error_exit("Invalid Args Format, should be -> [./pushswap 1 3 2 4 6]");
+	print_res(stacks);
 	return (0);
 }

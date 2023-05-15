@@ -66,6 +66,10 @@ int	has_duplicates(int argc, char *argv[])
 	i = 1;
 	j = 0;
 	values = (int *) ft_calloc(argc - 1, sizeof(int));
+	if (values == NULL)
+	{
+		ft_printf("Values (has_duplicate) Alloc Error");
+	}
 	while (i < argc)
 	{
 		values[i - 1] = ft_atoi(argv[i]);
@@ -76,6 +80,7 @@ int	has_duplicates(int argc, char *argv[])
 				free(values);
 				return (-1);
 			}
+			j++;
 		}
 		i++;
 	}
@@ -90,47 +95,47 @@ void	error_exit(const char *msg)
 	exit(EXIT_FAILURE);
 }
 
-// void	print_res(t_stack *stacks[2])
-// {
-// 	int	sizeA = lst_size(stacks[A]);
-// 	int	sizeB = lst_size(stacks[B]);
-// 	int	size;
-// 	int	i;
-// 	int flag;
+void	print_res(t_stack *stacks[2])
+{
+	int	sizeA = lst_size(stacks[A]);
+	int	sizeB = lst_size(stacks[B]);
+	int	size;
+	int	i;
+	int flag;
 
-// 	i = 0;
-// 	flag = 0;
-// 	size = sizeA > sizeB ? sizeA : sizeB;
-// 	ft_printf("\n\nReturned Stacks :\n");
-// 	ft_printf("---\n");
-// 	while (i < size)
-// 	{
-// 		if (i < sizeA)
-// 		{
-// 			ft_printf("%d ", stacks[A]->num);
-// 			if (stacks[A]->next)
-// 			{
-// 				if (stacks[A]->num > stacks[A]->next->num)
-// 					flag = 1;
-// 			}
-// 			stacks[A] = stacks[A]->next;
-// 		}
-// 		else
-// 			ft_printf("  ");
-// 		if (i < sizeB)
-// 		{
-// 			ft_printf("%d\n", stacks[B]->num);
-// 			stacks[B] = stacks[B]->next;
-// 		}
-// 		else
-// 			printf("\n");
-// 		i++;
-// 	}
-// 	ft_printf("---\n");
-// 	ft_printf("A B\n");
-// 	if (flag)
-// 		printf("\033[31mError : Final List Not Sorted\033[0m\n");
-// 	else
-// 		printf("\033[32mSucces <3 Final List Sorted !\033[0m\n");
+	i = 0;
+	flag = 0;
+	size = sizeA > sizeB ? sizeA : sizeB;
+	ft_printf("\n\nReturned Stacks :\n");
+	ft_printf("---\n");
+	while (i < size)
+	{
+		if (i < sizeA)
+		{
+			ft_printf("%d ", stacks[A]->num);
+			if (stacks[A]->next)
+			{
+				if (stacks[A]->num > stacks[A]->next->num)
+					flag = 1;
+			}
+			stacks[A] = stacks[A]->next;
+		}
+		else
+			ft_printf("  ");
+		if (i < sizeB)
+		{
+			ft_printf("%d\n", stacks[B]->num);
+			stacks[B] = stacks[B]->next;
+		}
+		else
+			printf("\n");
+		i++;
+	}
+	ft_printf("---\n");
+	ft_printf("A B\n");
+	if (flag)
+		printf("\033[31mError : Final List Not Sorted\033[0m\n");
+	else
+		printf("\033[32mSucces <3 Final List Sorted !\033[0m\n");
 
-// }
+}

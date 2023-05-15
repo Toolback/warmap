@@ -87,7 +87,7 @@ void	radix_sort(t_stack *stacks[2], int ac)
 			j++;
 		}
 		while (stacks[B])
-			pa(&stacks[A], &stacks[B]);
+			pa(&stacks[A], &stacks[B], 1);
 		i++;
 	}
 }

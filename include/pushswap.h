@@ -48,7 +48,7 @@ void	sort_five_values(t_stack *stacks[2]);
 // ########################
 void	sort(t_stack **stack, int ac);
 t_stack	*get_min_value(t_stack *tail);
-// void	print_res(t_stack *stacks[2]);
+void	print_res(t_stack *stacks[2]);
 void	error_exit(const char *msg);
 int		has_duplicates(int argc, char *argv[]);
 t_stack	*copy_list(t_stack *list);
@@ -77,7 +77,7 @@ int		ss(t_stack *stacks[2]);
 
 // -> pa (push a) : Prend le premier élément au sommet de b et le met sur a.
 // Ne fait rien si b est vide.
-void	pa(t_stack **stack_A, t_stack **stack_B);
+void	pa(t_stack **stack_A, t_stack **stack_B, int flag);
 // -> pb (push b) : Prend le premier élément au sommet de a et le met sur b.
 // Ne fait rien si a est vide.
 int		pb(t_stack **stack_A, t_stack **stack_B);
