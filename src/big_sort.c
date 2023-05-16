@@ -61,6 +61,7 @@ int	grrrcheckbytes(int size)
 	while ((max_num >> max_bits) != 0)
 		++max_bits;
 	return (max_bits);
+
 }
 
 void	radix_sort(t_stack *stacks[2], int ac)

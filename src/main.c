@@ -36,10 +36,10 @@ void	grrr(t_stack *stacks[2], char **values, int ac)
 
 t_stack	*copy_list(t_stack *list)
 {
-	t_stack	*copy;
-	t_stack	*curr_node;
-	t_stack	*new_node;
-	t_stack	*copy_node;
+	t_stack	*copy = NULL;
+	t_stack	*curr_node = NULL;
+	t_stack	*new_node = NULL;
+	t_stack	*copy_node = NULL;
 
 	curr_node = list;
 	while (curr_node != NULL)
